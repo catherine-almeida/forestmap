@@ -1,0 +1,74 @@
+---
+#title: "forestmap"
+---
+
+```{r, warning=FALSE, echo=FALSE, message=FALSE}
+#| column: screen-inset
+
+library(leaflet)
+library(leafpop)
+library(leafem)
+library(leaflet.extras)
+library(sf)
+library(tidyverse)
+library(vctrs)
+
+# Shapefile
+sample_shapefile <- read_sf(dsn = "Samples50m.shp")
+sample_shapefile <- sf::st_transform(sample_shapefile, "+proj=longlat +datum=WGS84")
+
+# Leaflet
+scpopup <- paste0("<b>Sample ID: </b>",sample_shapefile$plot_id,
+                  "<br/>",
+                  "<b>Latitude: </b>",round(sample_shapefile$lat,5),"<br/>",
+                  "<b>Longitude: </b>",round(sample_shapefile$lon,5),"<br/>",
+                  "<b>Class: </b>",sample_shapefile$class,"<br/>",
+                  "<b>Disturbance year: </b>",sample_shapefile$year, "<br/>",
+                  # "<b>Additional Information: </b> <embed src=/static/",sample_shapefile$Reports, "<br/>",
+                  "<b>Annual time series: </b>", "<br/>")
+
+myMap <- leaflet(sample_shapefile) %>% 
+  addProviderTiles("CartoDB") %>% 
+  setView(lat = -5.15, lng = -57.42, zoom = 5) %>%
+  addMouseCoordinates()
+
+# Color palette
+pal <- colorFactor(c("green", "navy", "red", "darkgreen"),
+                   levels = c("SF1_15yr","SF16_32yr","DF","UF"))
+
+myMap <- myMap %>% addPolygons(
+              weight=3, color = ~pal(class),
+              popup = scpopup,
+              label = sample_shapefile$plot_id,
+              highlightOptions = highlightOptions(color = "white"),
+              group = "samples") %>%
+  addLegend("bottomleft", pal = pal, values = ~class,
+    title = "Forest classes", opacity = 1) %>%
+  addPopupImages(sample_shapefile$Image, group = "samples",
+                 width = 400, height = 400) 
+# %>%
+#   addPopups(sample_shapefile$Reports, group = "samples")
+
+myMap <- myMap %>% 
+  leaflet.extras::addResetMapButton() %>% 
+  addMiniMap( # Add an inset minimap
+    position = "topright",
+    tiles = providers$Esri.WorldStreetMap,
+    toggleDisplay = TRUE,
+    minimized = FALSE) %>%
+  # Add measurement tool
+  addMeasure(
+    position = "topleft",
+    primaryLengthUnit = "meters",
+    secondaryLengthUnit = "kilometers",
+    primaryAreaUnit = "sqmeters"
+    ) %>%
+  # Add scale bar
+  addScaleBar(
+    position = "bottomright",
+    options = scaleBarOptions(imperial = FALSE))
+  
+myMap
+  
+```
+

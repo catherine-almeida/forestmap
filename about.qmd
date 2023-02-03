@@ -1,0 +1,13 @@
+---
+title: "About"
+---
+
+Interactive map of tropical forest degradation and regeneration samples
+
+\*\*Work in progress\*\*
+
+Author: Catherine Torres de Almeida
+
+E-mail: catherine.almeida@unesp.br
+
+Last update: Feb 02, 2023
