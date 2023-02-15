@@ -3,11 +3,11 @@ project:
   output-dir: docs
 
 website:
-  title: "forestmap"
+  title: "Tropical forest degradation and regeneration"
   navbar:
-    left:
+    right:
       - href: index.qmd
-        text: Home
+        text: Interactive map
       - about.qmd
 
 format:

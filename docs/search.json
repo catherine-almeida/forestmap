@@ -4,6 +4,13 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Interactive map of tropical forest degradation and regeneration samples\n**Work in progress**\nAuthor: Catherine Torres de Almeida\nE-mail: catherine.almeida@unesp.br\nLast update: Feb 02, 2023"
+    "text": "Interactive map of tropical forest degradation and regeneration samples\n**Work in progress**\nAuthor: Catherine Torres de Almeida\nE-mail: catherine.almeida@unesp.br\nLast update: Feb 15, 2023"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Tropical forest degradation and regeneration",
+    "section": "",
+    "text": "Interactive map of 600 samples of forest classes distributed across 12 sites in the Brazilian Amazon. The forest classes are: DF (degraded old-growth forest), SF1_15yr(younger second-growth forests), SF16_32yr(older second-growth forests), and UF (undisturbed old-growth forest). Zoom in and click on a sample to see more information."
   }
 ]
