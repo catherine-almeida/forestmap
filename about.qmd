@@ -2,12 +2,24 @@
 title: "About"
 ---
 
-Interactive map of tropical forest degradation and regeneration samples
+**Samples of tropical forest degradation and regeneration**
 
-\*\*Work in progress\*\*
+Interactive map of 600 samples of forest classes distributed across 12 sites in the Brazilian Amazon. The forest classes are:
+
+-   SF1_15yr (younger second-growth forests)
+
+-   SF16_32yr (older second-growth forests)
+
+-   DF (degraded old-growth forest)
+
+-   UF (undisturbed old-growth forest).
+
+Zoom in and click on a sample to see more information.
+
+For a complete report of samples, click [here](https://github.com/catherine-almeida/forestmap/tree/main/Reports).
 
 Author: Catherine Torres de Almeida
 
-E-mail: catherine.almeida@unesp.br
+E-mail: catherine.almeida\@unesp.br
 
 Last update: Feb 15, 2023

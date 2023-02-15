@@ -9,7 +9,7 @@ website:
       - href: index.qmd
         text: Interactive map
       - about.qmd
-
+      
 format:
   html:
     theme: cosmo
